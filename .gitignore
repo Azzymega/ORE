@@ -1,0 +1,5 @@
+/.cache
+/legacy/build
+/legacy
+# Project exclude paths
+/cmake-build-debug/
