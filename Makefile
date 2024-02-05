@@ -1,14 +1,14 @@
 
 CFLAGS = --target=i686-pc-none-elf -march=i686 -ffreestanding -Ofast -nostdlib -g -nodefaultlibs
-LL = cmake-build-debug/multiboot.o cmake-build-debug/source/libk/libk.a cmake-build-debug/source/libc/libc.a cmake-build-debug/source/libMarx/libMarx.a cmake-build-debug/source/libDraco/libDraco.a cmake-build-debug/source/libDraco/Scanner/libScanner.a cmake-build-debug/source/libReflector/libReflector.a
+LL = build/multiboot.o build/source/libk/libk.a build/source/libc/libc.a build/source/libMarx/libMarx.a build/source/libDraco/libDraco.a build/source/libDraco/Scanner/libScanner.a build/source/libReflector/libReflector.a
 
 main: multiboot link generateIso 
 
 multiboot: source/libk/boot.s
-	clang -c source/libk/boot.s $(CFLAGS) -o cmake-build-debug/multiboot.o
+	clang -c source/libk/boot.s $(CFLAGS) -o build/multiboot.o
 
 link: legacy/build
-	ld.lld -T cmake-build-debug/linker.ld $(LL) -o myos.bin
+	ld.lld -T linker.ld $(LL) -o myos.bin
 
 #FIXME
 

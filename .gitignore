@@ -1,5 +1,8 @@
 /.cache
 /legacy/build
 /legacy
+/.idea
+/build
+/.vscode
 # Project exclude paths
 /cmake-build-debug/
